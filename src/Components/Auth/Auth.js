@@ -9,8 +9,10 @@ class Auth extends Component {
         super(props)
         this.state = {
              username: '',
-             email: '',
-             password: '',
+             regemail: '',
+             logemail: '',
+             regpassword: '',
+             logpassword: '',
              verify: '',
         }
     }
@@ -58,7 +60,7 @@ class Auth extends Component {
                             placeholder='Username'
                             onChange={e => this.handleInput(e)}
                             />
-                        <input 
+                        <input
                             value={this.state.email}
                             name='email'
                             placeholder='Email address'
@@ -82,7 +84,7 @@ class Auth extends Component {
                     </section>
                     <section className='go-box' id='logbox'>
                         <h2>Already registered?<br/>Login here!</h2>
-                        <input 
+                        <input
                             value={this.state.email}
                             name='email'
                             placeholder='Email address'

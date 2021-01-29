@@ -1,0 +1,28 @@
+.dashboard {
+    height: calc(100vh - 100px);
+    color: #000000;
+    box-sizing: border-box;
+    padding: 20px; 
+}
+
+.dashboard button {
+    width: 120px;
+}
+
+.note-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note-flex div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.note-preview {
+    height: 250px;
+    margin: 20px;
+    border-radius: 10px;
+    color: #000000;
+} 
