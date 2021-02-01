@@ -22,7 +22,7 @@ module.exports = {
         const {email, password} = req.body
         const db = req.app.get('db')
 
-        const [foundUser] = await db.user.check_user({email})
+        const [foundUser] = await db.users.check_user({email})
         if (!foundUser){
             return res.status(400).send('Email not registered')
         }
@@ -33,7 +33,7 @@ module.exports = {
         }
 
         delete foundUser.password
-        req.session.user = foundUser
+        req.session.users = foundUser
         res.status(202).send(req.session.user)
     },
     logout: (req, res) => {

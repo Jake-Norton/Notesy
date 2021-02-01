@@ -9,17 +9,20 @@ class Auth extends Component {
         super(props)
         this.state = {
              username: '',
-             regemail: '',
-             logemail: '',
-             regpassword: '',
-             logpassword: '',
+             email: '',
+             password: '',
              verify: '',
+             doRegister: false,
         }
     }
 
     handleInput = (event) => {
         this.setState({ [event.target.name]: event.target.value})
     }
+
+    handleToggle = () => {
+        this.setState({doRegister: !this.state.doRegister})
+    } 
 
     handleLogin = () => {
         const {email, password} = this.state
@@ -50,55 +53,50 @@ class Auth extends Component {
     render () {
         return (
             <div className='auth-options'>
-                <h1> Welcome to Notesy!</h1>
-                <section className='info-boxes'>
-                    <section className='go-box' id='regbox'>
-                        <h2>New to Notesy?<br/>Register here!</h2>
-                        <input
-                            value={this.state.username}
-                            name='username'
-                            placeholder='Username'
-                            onChange={e => this.handleInput(e)}
-                            />
-                        <input
-                            value={this.state.email}
-                            name='email'
-                            placeholder='Email address'
-                            onChange={e => this.handleInput(e)}
-                            />
-                        <input
-                            value={this.state.password}
-                            name='password'
-                            type='password'
-                            placeholder='Password'
-                            onChange={e => this.handleInput(e)}
-                            />
-                        <input
-                            value={this.state.verify}
-                            name='verify'
-                            type='password'
-                            placeholder='Verify Password'
-                            onChange={e => this.handleInput(e)}
-                            />
-                        <button onClick={this.handleRegister}>Go!</button>
-                    </section>
-                    <section className='go-box' id='logbox'>
-                        <h2>Already registered?<br/>Login here!</h2>
-                        <input
-                            value={this.state.email}
-                            name='email'
-                            placeholder='Email address'
-                            onChange={e => this.handleInput(e)}
-                            />
-                        <input
-                            value={this.state.password}
-                            name='password'
-                            type='password'
-                            placeholder='Password'
-                            onChange={e => this.handleInput(e)}
-                            />
-                        <button onClick={this.handleLogin}>Go!</button>
-                    </section>
+                <section className='info-box'>
+                    <h2>Welcome to Notesy!</h2>
+                    {this.state.doRegister
+                        ? (
+                            <>
+                                <h3>Register</h3>
+                                <input
+                                    value={this.state.username}
+                                    name='username'
+                                    placeholder='Username'
+                                    onChange={e => this.handleInput(e)} />
+                            </>
+                        )
+                        : <h3>Login</h3>}
+                    <input
+                        value={this.state.email}
+                        name='email'
+                        placeholder='Email'
+                        onChange={e => this.handleInput(e)}/>
+                    <input
+                        value={this.state.password}
+                        name='password'
+                        type='password'
+                        placeholder='Password'
+                        onChange={e => this.handleInput(e)}/>
+                    {this.state.doRegister
+                        ? (
+                            <>
+                                <input 
+                                    value={this.state.verify}
+                                    name='verify'
+                                    type='password'
+                                    placeholder='Verify password'
+                                    onChange={e => this.handleInput(e)} />
+                                <button onClick={this.handleRegister}>Go!</button>
+                                <p>Already have an account? <span onClick={this.handleToggle}>Login here!</span></p>
+                            </>
+                        )
+                        : (
+                            <>
+                                <button onClick={this.handleLogin}>Go!</button>
+                                <p>Don't have an account? <span onClick={this.handleToggle}>Register here!</span></p>
+                            </>
+                        )}
                 </section>
             </div>
         )
