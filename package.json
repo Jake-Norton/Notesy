@@ -5,6 +5,8 @@
   "main": "server/index.js",
   "proxy": "http://localhost:8907",
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^25.0.0",
+    "@ckeditor/ckeditor5-react": "^3.0.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
@@ -21,7 +23,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "react-scripts start",

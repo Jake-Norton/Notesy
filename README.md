@@ -8,3 +8,6 @@ Did the JS and CSS for the dashboard view, I haven't yet seen it due to complica
 
 ## Coding Day 3
 Defeated the authentication error! Turns out the database already contained a "users" table from a prior project so I needed to give a different name to this one. I ran into another error after this that I suspect was caused by the salting/hashing process making the password too long for the database to accept, so I bumped up the character cap by 200, some nice wiggle room. I also redid the setup for the authentication so it switches from login to register and back at the click of a button, rather than have both on screen together.
+
+## Coding Day 4
+Found a surprise login error that was a simple typo in the controller. Realized I hadn't written the route for the dashboard so did that. Rest of the day was spent learning how to make a rich text editor (still working on that).

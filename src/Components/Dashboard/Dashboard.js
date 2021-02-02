@@ -7,8 +7,7 @@ class Dashboard extends Component {
     constructor(props){
         super(props)
         this.state = {
-            notes: [],
-            noteBody: ''
+            notes: []
         }
     }
 
@@ -32,7 +31,6 @@ class Dashboard extends Component {
         axios.post('/api/note', {id: this.props.user_id})
             .then(() => {
                 this.props.history.push('/editor')
-                this.setState({noteBody: ''})
             })
             .catch(err => console.log(err))
     }
@@ -45,14 +43,7 @@ class Dashboard extends Component {
             .catch(err => console.log(err))
     }
 
-    render(){
-        var notePreview = noteContent
-        const maxLength = 100
-        if(notePreview.length > shortenedNote.length){
-           var shortenedNote = notePreview.substr(0, maxLength);
-           shortenedNote = shortenedNote.substr(0, Math.min(shortenedNote.length, shortenedNote.lastIndexOf(''))) 
-        }
-        return(
+    render(){return(
             <section className='dashboard'>
                 <button onClick={this.createNote}>Create a Note</button>
                 <h1>Your Notes</h1>
@@ -60,8 +51,7 @@ class Dashboard extends Component {
                     {this.state.notes.map(note => (
                         <div key={note.note_id}>
                             <div className='note-preview'>
-                                <h3>${noteTitle}</h3>
-                                <p>${shortenedNote}</p>
+                                <h3>Placeholder Title</h3> 
                                 <button onClick={() => this.deleteNote(note.note_id)}>Delete Note</button>
                             </div>
                         </div>
