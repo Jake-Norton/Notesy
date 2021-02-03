@@ -1,19 +1,26 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import axios from 'axios';
+import {CKEditor} from'@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './Editor.css';
 
 class Editor extends Component {
     render() {
         return (
-            <section className='mandatoryParent'>
-                <div className='toolbar'>
-                     <a href='javascript:void(0)' onClick="format('bold')"><span className=''/></a>
-                </div>
-                <div className='textbox' contentEditable='true'/>
-            </section>
+            <div className='text-editor'>
+                <CKEditor
+                    editor={ClassicEditor}
+                    data=''
+                    onReady={editor => {
+                        console.log('Editor ready', editor);
+                    }}
+                    onChange={(event, editor) => {
+                        const data = editor.getData();
+                        console.log({event, editor, data});
+                    }}
+                />
+            </div>
         )
     }
 }
 
-export default Editor
+export default Editor; 

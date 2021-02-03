@@ -11,3 +11,6 @@ Defeated the authentication error! Turns out the database already contained a "u
 
 ## Coding Day 4
 Found a surprise login error that was a simple typo in the controller. Realized I hadn't written the route for the dashboard so did that. Rest of the day was spent learning how to make a rich text editor (still working on that).
+
+## Coding Day 5
+The rich text editor is now present in the editor component, and clicking the "Create a Note" button in the dashboard opens it! Figuring out a working method took longer than expected, but that's find. Hopefully using CKEditor counts as an additional technology and can net me some more points.

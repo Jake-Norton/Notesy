@@ -6,7 +6,9 @@
 }
 
 .dashboard button {
-    width: 120px;
+    width: 320px;
+    font-weight: bold;
+    color: #f1faee;
 }
 
 .note-flex {
